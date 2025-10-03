@@ -6,7 +6,7 @@ exports.helloWorld = functions.https.onCall(async(data, context) => {
   // Firebase Callable Functions では、data は { data: { ... } } 形式になることに注意
   const code = data?.code || data?.data?.code || "World";
   console.log("Received data name:", code);
-  const expectedCode = "shion"; //このコードとの整合性をチェックする
+  const expectedCode = "passward"; // 送信されてきた文字列とこれを比較し結果を返す
 
   if (code !== expectedCode) {
     console.warn("Invalid registration code attempt:", code, "from user:", context.auth.uid);
