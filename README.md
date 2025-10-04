@@ -31,16 +31,20 @@ TeamBirdmanTrial（**TBT**）S310 電装設計の [norahshion](https://github.co
 
 
 ---
-## 📁 プロジェクトの構成
+## 📁 本プロジェクトのディレクトリ構成と役割
 
-本リポジトリは、以下のコンポーネントで構成されています。
+本リポジトリは、以下の表に示す主要なコンポーネント（ディレクトリ）で構成されています。各コンポーネントの役割と詳細を記します。
 
-| ディレクトリ | 役割 |
-| :--- | :--- |
-| **`firmware/`** | **ESP32** メイン基板・TB基板のファームウェア |
-| **`android-app/FrontPilot/`** | **前部パイロット用** Androidアプリ |
-| **`android-app/RearPilot/`** | **後部パイロット用** Androidアプリ |
-| **`docs/`** | システム設計、ハードウェア仕様など全ての詳細ドキュメント |
+| ディレクトリ | 役割 | 詳細 |
+| :--- | :--- | :--- |
+| **`esp32/AKATUKI_MAIN.ino`** | **ESP32ファームウェア** | メイン基板の制御プログラム |
+| **`esp32/AKATUKI_TB.ino`** | **ESP32ファームウェア** | TB基板の制御プログラム |
+| **`androidApps/FrontP/`** | **Androidアプリ** | 前部パイロット用アプリ |
+| **`androidApps/BackP/`** | **Androidアプリ** | 後部パイロット用アプリ |
+| **`firebaseFunctions/services_helloworld_1748496253.231000/`** | **Firebase Functions** | 認証コードのチェック機能 |
+| **`firebaseFunctions/services_sendpasswordresetifuserexists_1748518185.584000/`** | **Firebase Functions** | 登録状態のチェック機能 |
+| **`spredsheetGas/saveData.gs`** | **データ保存スクリプト (GAS)** | Googleスプレッドシートへのデータ保存処理 |
+| **`docs/`** | **ドキュメント (Markdown)** | 本プロジェクトの詳細ドキュメント |
 
 ---
 
