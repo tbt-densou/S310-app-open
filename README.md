@@ -1,9 +1,9 @@
 # 製作概要
 
-TeamBirdmanTrial（**TBT**）S310 電装設計の [norahshion](https://github.com/norahshion) です。
-本リポジトリは、S310 電装班で製作したシステムの一般公開用です。
+TeamBirdmanTrial（**TBT**）S310 暁 機体の電装設計 [norahshion](https://github.com/norahshion) です。
+本リポジトリは、TBT S310 電装班で開発した機体計測・通信システムの一般公開用です。
 
-本システムの最大目標は、飛行中のパイロットに機体の状態をリアルタイムに伝えることです。
+本システムの目的は、飛行中のパイロットに機体状態をリアルタイムで可視化し、安全かつ効率的な飛行を支援することです。
 
 ## システムコンセプト
 
@@ -16,7 +16,7 @@ TeamBirdmanTrial（**TBT**）S310 電装設計の [norahshion](https://github.co
     * 後部パイロットの端末からフライトの**開始/停止フラグ**をFirebase経由で制御します。
     * フラグが「開始」になると、前部パイロットの端末が**すべてのデータを最終保存ディレクトリとスプレッドシートに記録**します。
 
-より詳細な通信プロトコルやFirebaseのデータ構造については、[データ連携ドキュメント](./docs/data_flow.md)を参照してください。
+より詳細な通信プロトコルやFirebaseのデータ構造については、[AndroidアプリのデータフローとFirebase連携](./docs/data_flow.md)を参照してください。
 
 ---
 
@@ -57,3 +57,17 @@ TeamBirdmanTrial（**TBT**）S310 電装設計の [norahshion](https://github.co
 * **ハードウェア仕様**: [計測機器一覧と詳細仕様](./docs/hardware_spec.md)
 * **実装・配置**: [機体への機器設置場所、基板写真](./docs/deployment.md)
 * **開発ガイド**: [ファームウェアのビルド・書き込み手順](./docs/firmware_guide.md)
+
+---
+
+## 👥 開発メンバー
+
+| 名前 / GitHub ID | 担当分野 | 主な役割 |
+|------------------|-----------|-----------|
+| [norahshion](https://github.com/norahshion) | システム全体設計・Android | 原案設計、ESP32通信制御、Androidバックエンド開発、Firebase連携設計 |
+| [echo125338](https://github.com/echo125338) | Android | Androidフロントエンド開発、UI設計 |
+| [tttt10231023](https://github.com/tttt10231023) | ファームウェア | 測定機器の製作、基板および基板BOXの設計・製作 |
+| 他6名 | ファームウェア | GitHubアカウント確認後に追記予定 |
+
+> ※ 本プロジェクトは TeamBirdmanTrial S310 電装班によって共同開発されました。
+
