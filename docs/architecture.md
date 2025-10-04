@@ -253,7 +253,8 @@ flowchart LR
 |Activity Compose|1.10.1|
 |ConstraintLayout|2.2.1|
 
-これらのバージョンは、安定性とCompose依存関係の互換性を重視して選定した。特にCompose BOM 2024.09.00 により、関連ライブラリ間の整合性を一元的に管理している。
+これらのバージョンは、安定性とCompose依存関係の互換性を重視して選定した。  
+特にCompose BOM 2024.09.00 により、関連ライブラリ間の整合性を一元的に管理している。
 その他詳細なバージョンについては、`libs.versions.toml`及び`build.gradle`を参照ください。
 
 # 5. 設計上の課題と解決策
