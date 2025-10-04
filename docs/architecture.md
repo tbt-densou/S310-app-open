@@ -200,7 +200,7 @@ UIはJetpackCompose使用。
 
 ---
 # 4.1. Androidアプリ構造図（データフロー）
-前部パイロット用
+### 前部パイロット用
 
 ```mermaid
 flowchart TD
@@ -218,7 +218,12 @@ flowchart TD
     B -->|フラグTrueなら保存| D["GAS (スプレッドシート)"]
 ```
 
-後部パイロット用
+前部パイロット用アプリは、常時ESP32との通信を行い、値の更新があるたびにFirebase RealtimeDatabaseの一時保存ディレクトリにデータを保存する。  
+このディレクトリ内のデータは20個以内となるように、適宜削除している。  
+Firebase RealtimeDatabaseのフラグ保存ディレクトリの値がTrueとなったら、Firebase RealtimeDatabase最終保存ディレクトリとGoogleスプレッドシートの双方にデータを保存する。  
+この値は自動で削除されることはない。  
+
+### 後部パイロット用
 
 ```mermaid
 flowchart LR
@@ -234,6 +239,11 @@ flowchart LR
 
 
 ```
+
+後部パイロット用アプリは、画面に設置された再生/停止ボタンが再生状態のときのみ、Firebase RealtimeDatabaseの一時保存ディレクトリの最新データを描写する。  
+再生/停止ボタンの状態は、常にFirebase RealtimeDatabaseのフラグディレクトリに保存される。  
+3秒以上更新がない場合、前部パイロット用アプリから自動でFalse状態にするよう書くことで、フェイルセーフ設計を実装した。  
+
 ---
 # 4.2. Androidアーキテクチャ詳細（技術選定）
 |記述方法|
