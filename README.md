@@ -71,3 +71,4 @@ TeamBirdmanTrial（**TBT**）S310 暁 機体の電装設計 [norahshion](https:/
 
 > ※ 本プロジェクトは TeamBirdmanTrial S310 電装班によって共同開発されました。
 
+S310電装班の活動紹介は[製作実績.pdf](https://drive.google.com/file/d/1oXdjaeTpDY14w4dTRbWsmmrn15XHOLD9/view?usp=sharing)をご参照ください。
