@@ -1,0 +1,23 @@
+{
+    // ... その他の設定 ...
+
+    // GitLensやCopilotの設定はそのまま使用できます
+    "gitlens.ai.model": "vscode",
+    "gitlens.ai.vscode.model": "copilot:gpt-4.1",
+    "tabnine.experimentalAutoImports": true,
+    "github.copilot.nextEditSuggestions.enabled": true,
+
+    // --- Paste Image の修正後の設定 ---
+
+    // 1. 画像ファイル自体の保存先
+    // プロジェクトのルート（${projectRoot}）から見た「docs/images」フォルダを指定
+    "pasteImage.path": "${projectRoot}/docs/images",
+
+    // 2. ファイル名の接頭辞 (Prefix)
+    // 現在のMarkdownファイル名（拡張子なし）をファイル名に含めるための設定
+    "pasteImage.namePrefix": "${currentFileNameWithoutExt}_",
+
+    // 3. ファイル名のデフォルト形式 (Default Name)
+    // ファイル名の日付部分の形式を定義
+    "pasteImage.defaultName": "Y-MM-DD-HH-mm-ss"
+}
