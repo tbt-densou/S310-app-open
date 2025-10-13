@@ -1,23 +1,58 @@
 {
-    // ... その他の設定 ...
+  // --- 行末スペースの自動削除をすべて無効化 ---
+  // これにより、Markdownの行末スペース（半角スペース2つ）が保存時に保護されます。
+  "files.trimTrailingWhitespace": false,
+  "trailing-spaces.trimOnSave": false, // Trailing Spaces 拡張機能の自動削除も無効化
 
-    // GitLensやCopilotの設定はそのまま使用できます
-    "gitlens.ai.model": "vscode",
-    "gitlens.ai.vscode.model": "copilot:gpt-4.1",
-    "tabnine.experimentalAutoImports": true,
-    "github.copilot.nextEditSuggestions.enabled": true,
+  // --- Prettier (コード整形) & Markdown All in One の連携 ---
 
-    // --- Paste Image の修正後の設定 ---
+  // 1. デフォルトのフォーマッタとしてPrettierを設定
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
 
-    // 1. 画像ファイル自体の保存先
-    // プロジェクトのルート（${projectRoot}）から見た「docs/images」フォルダを指定
-    "pasteImage.path": "${projectRoot}/docs/images",
+  // 2. ファイル保存時に自動でフォーマットをかける
+  "editor.formatOnSave": true,
 
-    // 2. ファイル名の接頭辞 (Prefix)
-    // 現在のMarkdownファイル名（拡張子なし）をファイル名に含めるための設定
-    "pasteImage.namePrefix": "${currentFileNameWithoutExt}_",
+  // 3. Markdownファイル設定
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    // PrettierのMarkdown設定：意図的な改行（半角スペース2つ）を保持する
+    "prettier.proseWrap": "preserve"
+  },
 
-    // 3. ファイル名のデフォルト形式 (Default Name)
-    // ファイル名の日付部分の形式を定義
-    "pasteImage.defaultName": "Y-MM-DD-HH-mm-ss"
+  // --- Prettier 設定の補強 ---
+  "prettier.requireConfig": true, // プロジェクトルートにprettier.config.jsがない場合は整形しない
+  "prettier.printWidth": 100, // 1行の最大文字数（調整可能）
+  "prettier.tabWidth": 2, // スペース2に統一
+  "prettier.useTabs": false, // タブではなくスペースを使用
+
+  // --- markdownlint (構文チェック) の調整 ---
+
+  "markdownlint.config": {
+    "MD013": false, // 行の長さ（最大行数）の制限を無効化
+    // MD009 (行末の不要なスペース) のチェックを緩和し、行末のスペース2つによる改行を許可
+    "MD009": { "br_spaces": 2 }
+  },
+
+  // --- zenkaku (全角スペース検出) ---
+
+  // 4. 全角スペースを視覚的にハイライト表示
+  "zenkaku.enable": true,
+
+  // --- GitLens/Git Graph (Git機能) ---
+
+  // 5. GitLensのホバー表示をシンプルにし、邪魔にならないように設定
+  "gitlens.codeLens.enabled": false,
+  "gitlens.currentLine.enabled": false,
+
+  // --- Paste Image の設定 ---
+  "pasteImage.path": "${projectRoot}/docs/images",
+  "pasteImage.namePrefix": "${currentFileNameWithoutExt}_",
+  "pasteImage.defaultName": "Y-MM-DD-HH-mm-ss",
+
+  // --- Copilot / AI 関連 (Tabnineは手動で追加) ---
+  "gitlens.ai.model": "vscode",
+  "gitlens.ai.vscode.model": "copilot:gpt-4.1",
+  "tabnine.experimentalAutoImports": true,
+  "github.copilot.nextEditSuggestions.enabled": true
 }
